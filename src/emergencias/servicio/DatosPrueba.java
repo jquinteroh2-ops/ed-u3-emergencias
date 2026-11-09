@@ -53,8 +53,8 @@ public final class DatosPrueba {
         central.registrarIncidente("INC-012", "Calle Real #24", "Manga", "Emergencia médica", "CRITICA", "Pedro Gil");
         central.registrarIncidente("INC-013", "Vía Turbaco-Arjona km 1", "Turbaco Centro", "Accidente de tránsito", "MEDIA", "Motociclista");
         central.registrarIncidente("INC-014", "Parque de Olaya", "Olaya Herrera", "Riña", "ALTA", "Vecinos");
-        central.registrarIncidente("INC-015", "Centro Comercial Caribe Plaza", "Pie De La Popa", "Hurto", "BAJA", "Seguridad del C.C.");
-        central.registrarIncidente("INC-016", "Calle 31 #17-40", "Pie De La Popa", "Emergencia médica", "MEDIA", "Carlos León");
+        central.registrarIncidente("INC-015", "Centro Comercial Caribe Plaza", "Pie de la Popa", "Hurto", "BAJA", "Seguridad del C.C.");
+        central.registrarIncidente("INC-016", "Calle 31 #17-40", "Pie de la Popa", "Emergencia médica", "MEDIA", "Carlos León");
 
         try {
             central.registrarIncidente("INC-005", "Otra dirección", "Manga", "Hurto", "BAJA", "Prueba");

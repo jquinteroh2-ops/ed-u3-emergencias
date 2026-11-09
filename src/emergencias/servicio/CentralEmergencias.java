@@ -385,10 +385,20 @@ public class CentralEmergencias {
 
     private static String normalizarZona(String zona) {
         String z = obligatorio(zona, "La zona (barrio o sector) es obligatoria.");
-        // Primera letra de cada palabra en mayúscula: "el bosque" -> "El Bosque"
+        // Primera letra de cada palabra en mayúscula ("el bosque" -> "El Bosque"), salvo
+        // conectores en medio del nombre ("pie de la popa" -> "Pie de la Popa").
+        // Así "manga" y "Manga" son la misma clave en el TreeMap de zonas.
+        Set<String> conectores = Set.of("de", "del", "la", "las", "los", "el", "y");
         StringBuilder sb = new StringBuilder();
-        for (String palabra : z.toLowerCase().split("\\s+")) {
-            sb.append(Character.toUpperCase(palabra.charAt(0))).append(palabra.substring(1)).append(' ');
+        String[] palabras = z.toLowerCase().split("\\s+");
+        for (int i = 0; i < palabras.length; i++) {
+            String palabra = palabras[i];
+            if (i > 0 && conectores.contains(palabra)) {
+                sb.append(palabra);
+            } else {
+                sb.append(Character.toUpperCase(palabra.charAt(0))).append(palabra.substring(1));
+            }
+            sb.append(' ');
         }
         return sb.toString().trim();
     }
